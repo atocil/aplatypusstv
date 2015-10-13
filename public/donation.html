@@ -1,12 +1,10 @@
 <!doctype html>
 
 <head>
-    <script src="//code.jquery.com/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script src="javascript/jquery-1.11.3.min.js" type="text/javascript"></script>
     <script src="https://streamtip.com/socket.io/socket.io.js" type="text/javascript"></script>
+    <script src="../private/streamtipkeys.js"></script>
     <script>
-        var client_id = '52560de7300496d32b00322d'; // Client id from the Account area
-        var access_token = 'YTliMTg1MjZiNmNjNjZkY2EyMTA2NmYz'; // Access token from the Account area
-
         var socket = io.connect('https://streamtip.com', {
             query: 'client_id=' + encodeURIComponent(client_id) + '&access_token=' + encodeURIComponent(access_token)
         });
@@ -47,6 +45,7 @@
         }
 
         function testdon() {
+            alert(client_id);
             amount = $("#Amount").val();
             processDonation();
         }
