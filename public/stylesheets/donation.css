@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+#test {
+	width:100%;
+	height:auto;	
+}
+
+body {
+	height: 100%;
+	width: auto;
+	background-color: #11D0FB;
+}
+img {
+	width:auto;
+	height:100%;
+	display:none;
+	position:absolute;
+	top:35px;
+}
+
+#username_text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 200px;
+	height: 100%;
+	font-weight: bold;
+	color: #FFF;		
+	width: 100%;
+	height: auto;
+	text-align:center;
+	vertical-align: middle;
+	line-height: 1080px; 
+	display:none;
+	position:absolute;
+	z-index:1000;
+}
+
+
