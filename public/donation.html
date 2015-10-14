@@ -54,6 +54,8 @@
             console.log("new donation " + amount);
             if (amount == 2.10) {
                 var vid = document.getElementById("210v");
+                vid.pause();
+                vid.currentTime = 0;
                 vid.play();
 
                 $("#210v").fadeToggle(1000);
