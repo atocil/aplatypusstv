@@ -53,8 +53,8 @@
         function processDonation() {
             console.log("new donation " + amount);
             if (amount == 2.10) {
-                var mp4 = document.getElementById('210');
-                mp4.src = "210.mp4";
+                var webm = document.getElementById('210');
+                webm.src = "210.webm";
                 var vid = document.getElementById("210v")
                 vid.play();
 
@@ -63,8 +63,8 @@
                     $("#210v").fadeToggle(1000);
                 }, 13000);
             } else if (amount == 4.20) {
-                var mp4 = document.getElementById('420');
-                mp4.src = "420.mp4";
+                var webm = document.getElementById('420');
+                webm.src = "420.webm";
                 var vid = document.getElementById("420v")
                 vid.play();
 
@@ -73,8 +73,8 @@
                     $("#420v").fadeToggle(1000);
                 }, 13000);
             } else if (amount == 8.40) {
-                var mp4 = document.getElementById('840');
-                mp4.src = "840.mp4";
+                var webm = document.getElementById('840');
+                webm.src = "840.webm";
                 var vid = document.getElementById("840v")
                 vid.play();
 
@@ -83,8 +83,8 @@
                     $("#840v").fadeToggle(1000);
                 }, 16000);
             } else if (amount == 6.66) {
-                var mp4 = document.getElementById('666');
-                mp4.src = "666.mp4";
+                var webm = document.getElementById('666');
+                webm.src = "666.webm";
                 var vid = document.getElementById("666v")
                 vid.play();
 
@@ -93,18 +93,18 @@
                     $("#666v").fadeToggle(1000);
                 }, 22000);
             } else if (amount == 42.00) {
-                var mp4 = document.getElementById('42');
-                mp4.src = "42.mp4";
-                var vid = document.getElementById("42v")
+                var webm = document.getElementById('4200');
+                webm.src = "4200.webm";
+                var vid = document.getElementById("4200v")
                 vid.play();
 
-                $("#42v").fadeToggle(1000);
+                $("#4200v").fadeToggle(1000);
                 setTimeout(function() {
-                    $("#42v").fadeToggle(1000);
+                    $("#4200v").fadeToggle(1000);
                 }, 12000);
             } else if (amount == 100.00) {
-                var mp4 = document.getElementById('10000');
-                mp4.src = "10000.mp4";
+                var webm = document.getElementById('10000');
+                webm.src = "10000.webm";
                 var vid = document.getElementById("10000v")
                 vid.play();
 
@@ -147,7 +147,7 @@
             <source id="840" src="videos/840.webm" type="video/webm" />
         </video>
         <video id="4200v" width="100%" Style="Display:none">
-            <source id="42" src="videos/4200.webm" type="video/webm" />
+            <source id="4200" src="videos/4200.webm" type="video/webm" />
         </video>
         <video id="8400v" width="100%" Style="Display:none">
             <source id="8400" src="videos/8400.webm" type="video/webm" />
