@@ -102,6 +102,16 @@
                 setTimeout(function() {
                     $("#42v").fadeToggle(1000);
                 }, 12000);
+            } else if (amount == 100.00) {
+                var mp4 = document.getElementById('10000');
+                mp4.src = "10000.mp4";
+                var vid = document.getElementById("10000v")
+                vid.play();
+
+                $("#10000v").fadeToggle(1000);
+                setTimeout(function() {
+                    $("10000v").fadeToggle(1000);
+                }, 12000);
             } else {
                 var vid = document.getElementById("defaultv")
                 vid.play();
@@ -136,11 +146,14 @@
         <video id="840v" width="100%" Style="Display:none">
             <source id="840" src="videos/840.webm" type="video/webm" />
         </video>
-        <video id="42v" width="100%" Style="Display:none">
+        <video id="4200v" width="100%" Style="Display:none">
             <source id="42" src="videos/4200.webm" type="video/webm" />
         </video>
         <video id="8400v" width="100%" Style="Display:none">
-            <source id="U10" src="videos/8400.webm" type="video/webm" />
+            <source id="8400" src="videos/8400.webm" type="video/webm" />
+        </video>
+        <video id="10000v" width="100%" Style="Display:none">
+            <source id="10000" src="videos/1000.webm" type="video/webm" />
         </video>
         <video id="U10v" width="100%" Style="Display:none">
             <source id="U10" src="videos/100.webm" type="video/webm" />
