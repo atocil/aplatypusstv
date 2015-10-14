@@ -55,7 +55,8 @@
             if (amount == 2.10) {
                 var webm = document.getElementById('210');
                 webm.src = "210.webm";
-                var vid = document.getElementById("210v")
+                var vid = document.getElementById("210v");
+                vid.currentTime = 0;
                 vid.play();
 
                 $("#210v").fadeToggle(1000);
@@ -65,7 +66,8 @@
             } else if (amount == 4.20) {
                 var webm = document.getElementById('420');
                 webm.src = "420.webm";
-                var vid = document.getElementById("420v")
+                var vid = document.getElementById("420v");
+                vid.currentTime = 0;
                 vid.play();
 
                 $("#420v").fadeToggle(1000);
@@ -75,7 +77,8 @@
             } else if (amount == 8.40) {
                 var webm = document.getElementById('840');
                 webm.src = "840.webm";
-                var vid = document.getElementById("840v")
+                var vid = document.getElementById("840v");
+                vid.currentTime = 0;
                 vid.play();
 
                 $("#840v").fadeToggle(1000);
@@ -85,7 +88,8 @@
             } else if (amount == 6.66) {
                 var webm = document.getElementById('666');
                 webm.src = "666.webm";
-                var vid = document.getElementById("666v")
+                var vid = document.getElementById("666v");
+                vid.currentTime = 0;
                 vid.play();
 
                 $("#666v").fadeToggle(1000);;
@@ -95,7 +99,8 @@
             } else if (amount == 42.00) {
                 var webm = document.getElementById('4200');
                 webm.src = "4200.webm";
-                var vid = document.getElementById("4200v")
+                var vid = document.getElementById("4200v");
+                vid.currentTime = 0;
                 vid.play();
 
                 $("#4200v").fadeToggle(1000);
@@ -105,7 +110,8 @@
             } else if (amount == 100.00) {
                 var webm = document.getElementById('10000');
                 webm.src = "10000.webm";
-                var vid = document.getElementById("10000v")
+                var vid = document.getElementById("10000v");
+                vid.currentTime = 0;
                 vid.play();
 
                 $("#10000v").fadeToggle(1000);
@@ -113,7 +119,8 @@
                     $("10000v").fadeToggle(1000);
                 }, 12000);
             } else {
-                var vid = document.getElementById("defaultv")
+                var vid = document.getElementById("defaultv");
+                vid.currentTime = 0;
                 vid.play();
 
                 $("#defaultv").fadeToggle(1000);
