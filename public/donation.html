@@ -98,14 +98,23 @@
                 setTimeout(function() {
                     $("#4200v").fadeToggle(1000);
                 }, 16000);
-            } else if (amount == 50.00) {
-                var vid = document.getElementById("5000v");
+            } else if (amount == 17.76) {
+                var vid = document.getElementById("1776v");
                 vid.play();
 
                 vid.currentTime = 0;
-                $("#5000v").fadeToggle(1000);
+                $("#1776v").fadeToggle(1000);
                 setTimeout(function() {
-                    $("#5000v").fadeToggle(1000);
+                    $("#1776v").fadeToggle(1000);
+                }, 43000);
+            } else if (amount == 100.00) {
+                var vid = document.getElementById("10000v");
+                vid.play();
+
+                vid.currentTime = 0;
+                $("#10000v").fadeToggle(1000);
+                setTimeout(function() {
+                    $("#10000v").fadeToggle(1000);
                 }, 38000);
             } else {
                 var vid = document.getElementById("defaultv");
@@ -143,11 +152,14 @@
         <video id="840v" width="100%" Style="Display:none">
             <source id="840" src="videos/840.webm" type="video/webm" />
         </video>
+        <video id="1776v" width="100%" Style="Display:none">
+            <source id="1776" src="videos/1776.webm" type="video/webm" />
+        </video>
         <video id="4200v" width="100%" Style="Display:none">
             <source id="4200" src="videos/4200.webm" type="video/webm" />
         </video>
-        <video id="5000v" width="100%" Style="Display:none">
-            <source id="5000" src="videos/5000.webm" type="video/webm" />
+        <video id="10000v" width="100%" Style="Display:none">
+            <source id="10000" src="videos/10000.webm" type="video/webm" />
         </video>
         <video id="42000v" width="100%" Style="Display:none">
             <source id="42000" src="videos/42000.webm" type="video/webm" />
