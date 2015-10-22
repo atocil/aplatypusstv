@@ -1,0 +1,141 @@
+doctype html
+head
+  script(src='javascript/jquery-1.11.3.min.js', type='text/javascript')
+  script(src='https://streamtip.com/socket.io/socket.io.js', type='text/javascript')
+  script.
+    var client_id = '52560de7300496d32b00322d'; // Client id from the Account area
+    var access_token = 'YTliMTg1MjZiNmNjNjZkY2EyMTA2NmYz'; // Access token from the Account area
+    var socket = io.connect('https://streamtip.com', {
+    query: 'client_id=' + encodeURIComponent(client_id) + '&access_token=' + encodeURIComponent(access_token)
+    });
+    socket.on('authenticated', function() {
+    console.log('authenticated');
+    });
+    socket.on('error', function(err) {
+    if (err === '401::Access Denied::') {
+    console.log('authentication failed');
+    }
+    });
+    socket.on('newTip', function(data) {
+    donation();
+    var amount = "";
+    var username = "";
+    console.log('donation');
+    });
+    function donation() {
+    $.ajax({
+    url: 'https://streamtip.com/api/tips?client_id=52560de7300496d32b00322d&access_token=YTliMTg1MjZiNmNjNjZkY2EyMTA2NmYz&limit=1',
+    type: 'GET',
+    dataType: 'jsonp',
+    success: function(json) {
+    amount = json["tips"][0]["amount"];
+    username = json["tips"][0]["username"];
+    var username_text = document.getElementById('username_text');
+    processDonation();
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown) {
+    alert("error getting donation!");
+    }
+    });
+    }
+    function testdon() {
+    amount = $("#Amount").val();
+    processDonation();
+    }
+    function processDonation() {
+    console.log("new donation " + amount);
+    if (amount == 2.10) {
+    var vid = document.getElementById("210v");
+    vid.pause();
+    vid.currentTime = 0;
+    vid.play();
+    $("#210v").fadeToggle(1000);
+    setTimeout(function() {
+    $("#210v").fadeToggle(1000);
+    }, 10000);
+    } else if (amount == 4.20) {
+    var vid = document.getElementById("420v");
+    vid.play();
+    vid.currentTime = 0;
+    $("#420v").fadeToggle(1000);
+    setTimeout(function() {
+    $("#420v").fadeToggle(1000);
+    }, 16000);
+    } else if (amount == 8.40) {
+    var vid = document.getElementById("840v");
+    vid.play();
+    vid.currentTime = 0;
+    $("#840v").fadeToggle(1000);
+    setTimeout(function() {
+    $("#840v").fadeToggle(1000);
+    }, 20000);
+    } else if (amount == 6.66) {
+    var vid = document.getElementById("666v");
+    vid.play();
+    vid.currentTime = 0;
+    $("#666v").fadeToggle(1000);
+    setTimeout(function() {
+    $("#666v").fadeToggle(1000);
+    }, 25000);
+    } else if (amount == 42.00) {
+    var vid = document.getElementById("4200v");
+    vid.play();
+    vid.currentTime = 0;
+    $("#4200v").fadeToggle(1000);
+    setTimeout(function() {
+    $("#4200v").fadeToggle(1000);
+    }, 16000);
+    } else if (amount == 17.76) {
+    var vid = document.getElementById("1776v");
+    vid.play();
+    vid.currentTime = 0;
+    $("#1776v").fadeToggle(1000);
+    setTimeout(function() {
+    $("#1776v").fadeToggle(1000);
+    }, 26000);
+    } else if (amount == 100.00) {
+    var vid = document.getElementById("10000v");
+    vid.play();
+    vid.currentTime = 0;
+    $("#10000v").fadeToggle(1000);
+    setTimeout(function() {
+    $("#10000v").fadeToggle(1000);
+    }, 38000);
+    } else {
+    var vid = document.getElementById("defaultv");
+    vid.play();
+    vid.currentTime = 0;
+    $("#defaultv").fadeToggle(1000);
+    setTimeout(function() {
+    $("#defaultv").fadeToggle(1000);
+    }, 20000);
+    }
+    var vid = document.getElementById("defaultv");
+    }
+  title Donation Page
+  link(href='stylesheets/donation.css', rel='stylesheet', type='text/css')
+input#Amount
+input(type='submit', onclick='testdon();')
+#test
+  video#210v(width='100%', style='Display:none')
+    source#210(src='videos/210.webm', type='video/webm')
+  video#420v(width='100%', style='Display:none')
+    source#420(src='videos/420.webm', type='video/webm')
+  video#666v(width='100%', style='Display:none')
+    source#666(src='videos/666.webm', type='video/webm')
+  video#840v(width='100%', style='Display:none')
+    source#840(src='videos/840.webm', type='video/webm')
+  video#1776v(width='100%', style='Display:none')
+    source#1776(src='videos/america.webm', type='video/webm')
+  video#4200v(width='100%', style='Display:none')
+    source#4200(src='videos/4200.webm', type='video/webm')
+  video#10000v(width='100%', style='Display:none')
+    source#10000(src='videos/10000.webm', type='video/webm')
+  video#42000v(width='100%', style='Display:none')
+    source#42000(src='videos/42000.webm', type='video/webm')
+  video#84000v(width='100%', style='Display:none')
+    source#84000(src='videos/84000.webm', type='video/webm')
+  video#U10v(width='100%', style='Display:none')
+    source#U10(src='videos/100.webm', type='video/webm')
+  video#defaultv(width='100%', style='Display:none')
+    source#default(src='videos/default.webm', type='video/webm')
