@@ -3,41 +3,12 @@ head
   script(src='javascript/jquery-1.11.3.min.js', type='text/javascript')
   script(src='https://streamtip.com/socket.io/socket.io.js', type='text/javascript')
   script.
-    var client_id = '52560de7300496d32b00322d'; // Client id from the Account area
-    var access_token = 'YTliMTg1MjZiNmNjNjZkY2EyMTA2NmYz'; // Access token from the Account area
-    var socket = io.connect('https://streamtip.com', {
-    query: 'client_id=' + encodeURIComponent(client_id) + '&access_token=' + encodeURIComponent(access_token)
-    });
-    socket.on('authenticated', function() {
-    console.log('authenticated');
-    });
-    socket.on('error', function(err) {
-    if (err === '401::Access Denied::') {
-    console.log('authentication failed');
-    }
-    });
-    socket.on('newTip', function(data) {
-    donation();
-    var amount = "";
-    var username = "";
-    console.log('donation');
-    });
-    function donation() {
-    $.ajax({
-    url: 'https://streamtip.com/api/tips?client_id=52560de7300496d32b00322d&access_token=YTliMTg1MjZiNmNjNjZkY2EyMTA2NmYz&limit=1',
-    type: 'GET',
-    dataType: 'jsonp',
-    success: function(json) {
-    amount = json["tips"][0]["amount"];
-    username = json["tips"][0]["username"];
-    var username_text = document.getElementById('username_text');
+    var socket = io('http://localhost:8080/donations');
+    socket.on('newTipEvent', function(data) {
+    amount = data.amount;
+    username = data.username;
     processDonation();
-    },
-    error: function(XMLHttpRequest, textStatus, errorThrown) {
-    alert("error getting donation!");
-    }
     });
-    }
     function testdon() {
     amount = $("#Amount").val();
     processDonation();
