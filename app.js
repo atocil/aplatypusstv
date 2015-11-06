@@ -9,9 +9,11 @@ var session = require('express-session');
 var socket_io = require('socket.io');
 var socket_io_client = require('socket.io-client');
 var properties = PropertiesReader('aplatypuss.properties');
+var passport = require('passport');
+var mongoose = require('mongoose');
 var donations = require('./routes/donations');
 var routes = require('./routes/index');
-
+var dbconfig = require('./config/dbconfig.js');
 var app = express();
 
 // view engine setup
@@ -67,6 +69,14 @@ app.use(function(err, req, res, next) {
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
+//DATABASE
+var connString = dbconfig.url;
+connString = connString.replace("$user", properties.get('db_user'));
+connString = connString.replace("$pass", properties.get('db_pass'));
+console.log(connString);
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 //DONATIONS SOCKETS
 
 var streamtip_socket = socket_io_client.connect('https://streamtip.com', {
@@ -93,5 +103,11 @@ donation_socket.on('connection', function(socket){
   });
 
 });
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+//DONATIONS SOCKETS
+app.use(passport.initialize());
+app.use(passport.session());
 
 module.exports = app;
