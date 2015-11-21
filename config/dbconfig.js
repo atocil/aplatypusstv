@@ -1,3 +1,3 @@
 module.exports = {
-    'url' : 'mongodb://$user:$pass@104.236.121.56:27017/platydb'
+    'url' : 'mongodb://$user:$pass@107.170.231.229:27017/platydb'
 };

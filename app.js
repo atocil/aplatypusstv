@@ -10,10 +10,11 @@ var socket_io = require('socket.io');
 var socket_io_client = require('socket.io-client');
 var properties = PropertiesReader('aplatypuss.properties');
 var passport = require('passport');
-var mongoose = require('mongoose');
+var twitch_strategy = require('passport-twitchtv');
 var donations = require('./routes/donations');
 var routes = require('./routes/index');
 var dbconfig = require('./config/dbconfig.js');
+var mongoose = require('mongoose');
 var app = express();
 
 // view engine setup
@@ -74,6 +75,7 @@ var connString = dbconfig.url;
 connString = connString.replace("$user", properties.get('db_user'));
 connString = connString.replace("$pass", properties.get('db_pass'));
 console.log(connString);
+mongoose.connect(configDB.url);
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -106,7 +108,7 @@ donation_socket.on('connection', function(socket){
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-//DONATIONS SOCKETS
+//PASSPORT CONFIG
 app.use(passport.initialize());
 app.use(passport.session());
 

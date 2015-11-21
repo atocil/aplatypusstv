@@ -10,8 +10,4 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'SpeakEZ' });
 });
 
-router.post('/login', passport.authenticate)
-
-});
-
 module.exports = router;
