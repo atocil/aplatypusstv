@@ -40,6 +40,14 @@ head
     setTimeout(function() {
     $("#840v").fadeToggle(1000);
     }, 20000);
+    } else if (amount == 13.37) {
+    var vid = document.getElementById("1337v");
+    vid.play();
+    vid.currentTime = 0;
+    $("#1337v").fadeToggle(1000);
+    setTimeout(function() {
+    $("#1337v").fadeToggle(1000);
+    }, 30000);
     } else if (amount == 6.66) {
     var vid = document.getElementById("666v");
     vid.play();
@@ -96,6 +104,8 @@ input(type='submit', onclick='testdon();')
     source#666(src='videos/666.webm', type='video/webm')
   video#840v(width='100%', style='Display:none')
     source#840(src='videos/840.webm', type='video/webm')
+  video#1337v(width='100%', style='Display:none')
+    source#1337(src='videos/1337.webm', type='video/webm')
   video#1776v(width='100%', style='Display:none')
     source#1776(src='videos/america.webm', type='video/webm')
   video#4200v(width='100%', style='Display:none')
