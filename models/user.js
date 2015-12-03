@@ -5,6 +5,7 @@ var userSchema = mongoose.Schema({
 	twitch			: {
 		id 			: String,
 		username	: String,
+		displayname : String,
 		token		: String,
 		email		: String
 	}

@@ -1,17 +1,10 @@
 doctype html
 html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    script(src='./test_files/jquery-1.11.3.min.js', type='text/javascript')
   body
-    h1 Twitch Info
     #container.col
       p
-        strong id
-        | : #{user.twitch.id}
-        br
-        strong token
-        | : #{user.twitch.token}
-        br
-        strong email
-        | : #{user.twitch.email}
-        br
-        strong username
-        | : #{user.twitch.username}
+        strong Welcome, #{user.twitch.displayname}
+      input(type='button', name='login', value='Play Bingo!', onclick="window.location='/bingo'")

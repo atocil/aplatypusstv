@@ -36,6 +36,7 @@ module.exports = function(passport) {
     					newUser.twitch.token = accessToken;
     					newUser.twitch.username = profile.username;
                         newUser.twitch.email = profile.email;
+                        newUser.twitch.displayname = profile.displayName;
 
     					newUser.save(function(err) {
     						if(err) {
