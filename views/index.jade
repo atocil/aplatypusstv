@@ -1,5 +1,4 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to the SpeakEZ
+doctype html
+head
+  script(src='javascript/jquery-1.11.3.min.js', type='text/javascript')
+input(type='button', name='login', value='Login w/ Twitch', onclick="window.location='/auth'")
