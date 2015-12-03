@@ -3,7 +3,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'SpeakEZ' });
+	if(req.isAuthenticated()) {
+		res.render('profile', { user : req.user });
+	} else {
+		res.render('index', { title: 'SpeakEZ' });
+	}
 });
 
 router.get('/profile', isLoggedIn, function(req, res) {

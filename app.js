@@ -88,6 +88,7 @@ app.use(function(err, req, res, next) {
 var connString = dbconfig.url;
 connString = connString.replace("$user", props.db.db_user);
 connString = connString.replace("$pass", props.db.db_pass);
+connString = connString.replace("$db", props.db.db_name);
 mongoose.connect(connString);
 
 ///////////////////////////////////////////////////////////////////////////////
