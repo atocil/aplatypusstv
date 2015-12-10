@@ -10,6 +10,7 @@ var socket_io_client = require('socket.io-client');
 var twitch_strategy = require('passport-twitchtv');
 var donations = require('./routes/donations');
 var index = require('./routes/index');
+var bingo = require('./routes/bingo');
 var dbconfig = require('./config/dbconfig.js');
 var mongoose = require('mongoose');
 var props = require('./properties.js');
@@ -50,6 +51,7 @@ var auth = require('./routes/auth')(passport);
 app.use('/', index);
 app.use('/auth', auth);
 app.use('/donations', donations);
+app.use('/bingo', bingo);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

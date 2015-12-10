@@ -1,0 +1,9 @@
+head
+  meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+  script(src='./test_files/jquery-1.11.3.min.js', type='text/javascript')
+  body
+    #container.col
+      p
+        strong Welcome, #{user.twitch.displayname}
+      - for (var x = 0; x < 5; x++)
+        li #{card.rows[x].spaces[0].value}

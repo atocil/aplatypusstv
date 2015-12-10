@@ -1,0 +1,8 @@
+doctype html
+head
+  table
+    - for (var r = 0; r < 5; r++) {
+      tr
+        - for (var c = 0; c < 5; c++) 
+            td= 'Value: ' + card.rows[r].spaces[c].value
+    - }

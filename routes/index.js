@@ -16,12 +16,6 @@ router.get('/profile', isLoggedIn, function(req, res) {
 	});
 });
 
-router.get('/bingo', isLoggedIn, function(req, res) {
-	res.render('bingo', {
-		user : req.user,
-	})
-});
-
 function isLoggedIn(req, res, next) {
 	if(req.isAuthenticated()) {
 		return next();
