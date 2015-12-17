@@ -1,9 +1,15 @@
 head
   meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
-  script(src='./test_files/jquery-1.11.3.min.js', type='text/javascript')
+  script(src='/javascript/jquery-1.11.3.min.js')
   body
     #container.col
       p
         strong Welcome, #{user.twitch.displayname}
-      - for (var x = 0; x < 5; x++)
-        li #{card.rows[x].spaces[0].value}
+      - for (var r = 0; r < 5; r++) {
+        tr(id='row' + r)
+          - for (var c = 0; c < 5; c++) 
+              td(id='col' + c)
+                input(type='text', name='space' + (5 * r + c), id='space' + (5 * r + c), value= card.spaces[5 * r + c].value)
+                input(type='hidden', name='key' + (5 * r + c), id='key' + (5 * r + c), value= card.spaces[5 * r + c].key)
+                input(type='checkbox', name='activated' + (5 * r + c), id='activated' + (5 * r + c), checked= card.spaces[5 * r + c].activated)
+      - }

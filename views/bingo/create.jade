@@ -1,8 +1,30 @@
 doctype html
+script(src='/javascript/jquery-1.11.3.min.js')
+script(type='text/javascript').
+  $(document).ready(function() {
+  $('#submit').click( function() {
+  console.log(window.location.href);
+  $.ajax({
+  url: window.location.href,
+  type: 'post',
+  dataType: 'json',
+  data: $('form').serialize(),
+  success: function(data) {
+  }
+  });
+  });
+  });
 head
-  table
-    - for (var r = 0; r < 5; r++) {
-      tr
-        - for (var c = 0; c < 5; c++) 
-            td= 'Value: ' + card.rows[r].spaces[c].value
-    - }
+  form(id=bingoCard)
+    table(name='card', id='card', border='1')
+      - for (var r = 0; r < 5; r++) {
+        tr(id='row' + r)
+          - for (var c = 0; c < 5; c++) 
+              td(id='col' + c)
+                input(type='text', name='space' + (5 * r + c), id='space' + (5 * r + c), value= card.spaces[5 * r + c].value)
+                input(type='hidden', name='key' + (5 * r + c), id='key' + (5 * r + c), value= card.spaces[5 * r + c].key)
+                input(type='checkbox', name='activated' + (5 * r + c), id='activated' + (5 * r + c), checked= card.spaces[5 * r + c].activated)
+      - }
+    input(type='text', name='wager', id='wager', value='420')
+
+input(type='button', name='submit', id='submit', value='Submit Card')

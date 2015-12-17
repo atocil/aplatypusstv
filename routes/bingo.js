@@ -16,17 +16,48 @@ router.get('/', isLoggedIn, function(req, res) {
 			});
 		} 
 		else {
-			res.redirect('/bingo/create')
+			res.redirect('/bingo/create');
 		}
 	});
 });
 
 router.get('/create', isLoggedIn, function(req, res) {
-	var newCard = utils.random_card();	
-	res.render('bingo/create', {
-		user : req.user,
-		card : newCard
+	BingoCard.findOne({'owner': req.user.twitch.username, 'enabled' : true}, function(err, card) {
+		if(err) {
+
+		}
+
+		if(card) {
+			res.redirect('/bingo');
+		} 
+		else {
+			var newCard = utils.random_card();	
+			res.render('bingo/create', {
+				user : req.user,
+				card : newCard
+			});
+		}
 	});
+});
+
+router.post('/create', isLoggedIn, function(req, res) {
+	var card = new BingoCard();
+	card.owner = req.user.twitch.username;
+	card.enabled = true;
+	card.wager = req.body.wager;
+	card.spaces = utils.get_spaces(req.body);
+	card.save(function(err) {
+    if(err) {
+    	throw err;
+    }
+	});
+
+  res.redirect('/bingo');
+});
+
+router.get('/delete', isLoggedIn, function(req, res) {
+	BingoCard.find({'owner': req.user.twitch.username, 'enabled' : true}).remove().exec();
+	res.redirect('/bingo');
 });
 
 function isLoggedIn(req, res, next) {
