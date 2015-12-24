@@ -50,9 +50,8 @@ router.post('/create', isLoggedIn, function(req, res) {
     if(err) {
     	throw err;
     }
+  	res.redirect('/bingo');
 	});
-
-  res.redirect('/bingo');
 });
 
 router.get('/delete', isLoggedIn, function(req, res) {
