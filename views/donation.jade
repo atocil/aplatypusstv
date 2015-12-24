@@ -56,6 +56,14 @@ head
     setTimeout(function() {
     $("#666v").fadeToggle(1000);
     }, 25000);
+    } else if (amount == 3.33) {
+    var vid = document.getElementById("333v");
+    vid.play();
+    vid.currentTime = 0;
+    $("#333v").fadeToggle(1000);
+    setTimeout(function() {
+    $("#333v").fadeToggle(1000);
+    }, 22000);
     } else if (amount == 42.00) {
     var vid = document.getElementById("4200v");
     vid.play();
@@ -122,6 +130,8 @@ input(type='submit', onclick='testdon();')
 #test
   video#210v(width='100%', style='Display:none')
     source#210(src='videos/210.webm', type='video/webm')
+  video#333v(width='100%', style='Display:none')
+    source#333(src='videos/333.webm', type='video/webm')
   video#420v(width='100%', style='Display:none')
     source#420(src='videos/420.webm', type='video/webm')
   video#666v(width='100%', style='Display:none')
