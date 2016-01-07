@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var BingoCard = require('../models/card');
-var utils = require('./utils');
+var utils = require('../utils/bingo');
 
 router.get('/', isLoggedIn, function(req, res) {
 	BingoCard.findOne({'owner': req.user.twitch.username, 'enabled' : true}, function(err, card) {
@@ -50,7 +50,7 @@ router.post('/create', isLoggedIn, function(req, res) {
     if(err) {
     	throw err;
     }
-  	res.redirect('/bingo');
+    res.send({redirect: req.get('host') + '/bingo/play'});
 	});
 });
 
